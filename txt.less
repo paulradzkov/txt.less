@@ -1,4 +1,4 @@
-/*! txt.less v0.0.1 | MIT License | github.com/paulradzkov/text.less */
+/*! txt.less v0.0.2 | MIT License | github.com/paulradzkov/text.less */
 
 .txt-settings() {
     // media breakpoints
@@ -15,7 +15,7 @@
     // suffixes-count = breakpoints-count + 1
 }
 
-@txt-render: {
+& {
 
     .txt-settings();
 
@@ -31,10 +31,10 @@
 
         // render from
         @media (min-width: @current-breakpoint) {
-            .txt-left-@{current-class}    { text-align: left; }
-            .txt-right-@{current-class}   { text-align: right; }
-            .txt-center-@{current-class}  { text-align: center; }
-            .txt-justify-@{current-class} { text-align: justify; }
+            .txt-left\:@{current-class}    { text-align: left; }
+            .txt-right\:@{current-class}   { text-align: right; }
+            .txt-center\:@{current-class}  { text-align: center; }
+            .txt-justify\:@{current-class} { text-align: justify; }
         }
     }
 
@@ -51,16 +51,14 @@
     }
 
     & when (@m > 1) {
-        .txt-left-@{first-suffix}    { text-align: left; }
-        .txt-right-@{first-suffix}   { text-align: right; }
-        .txt-center-@{first-suffix}  { text-align: center; }
-        .txt-justify-@{first-suffix} { text-align: justify; }
+        .txt-left\:@{first-suffix}    { text-align: left; }
+        .txt-right\:@{first-suffix}   { text-align: right; }
+        .txt-center\:@{first-suffix}  { text-align: center; }
+        .txt-justify\:@{first-suffix} { text-align: justify; }
     }
 
     // Render mediaqueries with breakpoints
     .responsive();
 
 
-};
-
-@txt-render();
+}
