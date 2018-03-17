@@ -28,26 +28,8 @@ module.exports = (grunt) ->
 			less:
 				files: ['txt.less']
 				tasks: [
-					'less:production'
-					'notify:less'
+					'less'
 				]
-
-		# start server
-		connect:
-			server:
-				options:
-					port: 9778
-					hostname: '*'
-					base: '<%= docpad.out %>'
-					livereload: true
-					# open: true
-
-		# notify
-		notify:
-			less:
-				options:
-					title: 'LESS'
-					message: 'txt.css compiled'
 
 	# measures the time each task takes
 	require('time-grunt')(grunt);
@@ -62,8 +44,7 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-cssmin'
 	grunt.loadNpmTasks 'grunt-shell-spawn'
 	grunt.loadNpmTasks 'grunt-newer'
-	grunt.loadNpmTasks 'grunt-notify'
 
 	# Register our Grunt tasks.
-	grunt.registerTask 'run',				 ['less', 'cssmin', 'notify:less', 'watch:less']
+	grunt.registerTask 'run',				 ['less', 'cssmin', 'watch:less']
 	grunt.registerTask 'default',			 ['run']

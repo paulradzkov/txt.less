@@ -10,6 +10,7 @@
 
     // names for breakpoint suffixes
     @suffixes: xs, sm, md, lg, xl;
+    @suffixes-separator: ~"\:";  // will render css as .txt-left\:xs
 
     // IMPORTANT: suffixes count should be bigger than breakpoints count by 1
     // suffixes-count = breakpoints-count + 1
@@ -31,10 +32,10 @@
 
         // render from
         @media (min-width: @current-breakpoint) {
-            .txt-left\:@{current-class}    { text-align: left; }
-            .txt-right\:@{current-class}   { text-align: right; }
-            .txt-center\:@{current-class}  { text-align: center; }
-            .txt-justify\:@{current-class} { text-align: justify; }
+            .txt-left@{suffixes-separator}@{current-class}    { text-align: left; }
+            .txt-right@{suffixes-separator}@{current-class}   { text-align: right; }
+            .txt-center@{suffixes-separator}@{current-class}  { text-align: center; }
+            .txt-justify@{suffixes-separator}@{current-class} { text-align: justify; }
         }
     }
 
@@ -51,10 +52,10 @@
     }
 
     & when (@m > 1) {
-        .txt-left\:@{first-suffix}    { text-align: left; }
-        .txt-right\:@{first-suffix}   { text-align: right; }
-        .txt-center\:@{first-suffix}  { text-align: center; }
-        .txt-justify\:@{first-suffix} { text-align: justify; }
+        .txt-left@{suffixes-separator}@{first-suffix}    { text-align: left; }
+        .txt-right@{suffixes-separator}@{first-suffix}   { text-align: right; }
+        .txt-center@{suffixes-separator}@{first-suffix}  { text-align: center; }
+        .txt-justify@{suffixes-separator}@{first-suffix} { text-align: justify; }
     }
 
     // Render mediaqueries with breakpoints
